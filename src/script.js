@@ -24,7 +24,14 @@ function addBookToLibrary() {
   const title = prompt("What is the title of the book?");
   const author = prompt("Who is the author of the book?");
   const numPages = prompt("How many pages are in the book?");
-  const haveRead = prompt("Have you read it already? Y/N");
+  const haveReadInput = prompt("Have you read it already? Y/N")
+  let haveRead;
+  if (haveReadInput === 'Y') {
+    haveRead = true;
+  }
+  else {
+    haveRead = false;
+  }
 
   const toAppend = new Book(title, author, numPages, haveRead);
 
@@ -36,5 +43,3 @@ function displayBooks() {
     e.info();
   });
 }
-
-displayBooks();
