@@ -1,0 +1,20 @@
+{
+  "name": "odin-library",
+  "version": "1.0.0",
+  "description": "A library website to demonstrate my knowledge on the JavaScript Constructor design pattern &amp; Prototypal Inheritance.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luzefiru/odin-library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luzefiru/odin-library/issues"
+  },
+  "homepage": "https://github.com/Luzefiru/odin-library#readme"
+}
