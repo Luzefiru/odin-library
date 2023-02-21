@@ -30,3 +30,11 @@ function addBookToLibrary() {
 
   myLibrary.push(toAppend);
 }
+
+function displayBooks() {
+  myLibrary.forEach((e) => {
+    e.info();
+  });
+}
+
+displayBooks();
