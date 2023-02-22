@@ -35,15 +35,18 @@
     </main>
 
     <form class="off">
-      
+      <img class="form__btn--close" src="../res/close.svg" alt="Close Button">
       <label for="title">Title of Book: </label>
       <input type="text" name="title" id="title">
       <label for="author">Author: </label>
       <input type="text" name="author" id="author">
       <label for="pages">Number of Pages: </label>
       <input type="text" name="pages" id="pages">
-      <label for="read">Have you read the book already?</label>
-      <input type="checkbox" name="read" id="read">
+      <div class="form__last-row">
+        <label for="read">Have you read the book already?</label>
+        <input type="checkbox" name="read" id="read">
+        <button class="form__btn--submit" type="button">Add</button>
+      </div>
     </form>
     <!-- Attribution
       <a href="https://www.vecteezy.com/free-vector/book-logo">Book Logo Vectors by Vecteezy</a>
