@@ -10,7 +10,7 @@
 
 :root {
   --primary: hsla(198, 74%, 52%, 1);
-  --tertiary: rgb(232, 146, 27);
+  --tertiary: rgb(240, 157, 41);
   --secondary: hsla(229, 43%, 41%, 1);
   --secondary-variant: hsla(229, 55%, 36%, 1);
   --surface: rgb(243, 243, 243);
@@ -34,7 +34,7 @@ nav {
 
 .nav__logo {
   grid-area: left;
-  width: 4.5rem;
+  width: 4.75rem;
   border-radius: 100%;
 }
 
@@ -54,6 +54,12 @@ nav {
   place-items: center;
 
   color: var(--surface);
+  transition: 0.2s;
+}
+
+.nav__links > *:hover {
+  transition: 0.2s;
+  color: var(--tertiary);
 }
 
 .nav__btn--add-book {
