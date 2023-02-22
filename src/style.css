@@ -14,6 +14,8 @@
   --secondary: hsla(229, 43%, 41%, 1);
   --secondary-variant: hsla(229, 55%, 36%, 1);
   --surface: rgb(243, 243, 243);
+  --background: rgb(167, 177, 219);
+  --subheading: #666666;
   --surface-dark: rgb(14, 14, 14);
   --shadow: rgb(95, 102, 133);
 }
@@ -21,6 +23,8 @@
 body, html {
   height: 100%;
 }
+
+/* navbar styles */
 
 nav {
   padding: 1rem 4rem;
@@ -87,4 +91,50 @@ nav {
   background-color: var(--tertiary);
   color: var(--surface);
   transition: 0.2s;
+}
+
+/* main area styles */
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  padding: 3rem;
+  gap: 2rem;
+  height: max(calc(100% - 7rem), min-content); /* 100% of the viewport - height of navbar */
+}
+
+/* book card styles */
+
+.card--book {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.main__card {
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  background-color: var(--surface);
+  box-shadow: 0 2px 6px var(--shadow);
+
+  transition: 0.1s ease-out;
+}
+
+.main__card:hover {
+  transform: scale(1.025);
+  transition: all 0.1s ease-in-out;
+  box-shadow: 0 4px 10px rgb(137, 142, 170);
+}
+
+.card--book > *:first-child {
+  font-size: 24px;
+}
+
+.card--book > *:not(.card--book__title) {
+  color: var(--subheading);
+}
+
+.card--book__have-read-check {
+  width: 2rem;
+  align-self: flex-end;
 }
