@@ -143,3 +143,25 @@ main {
 .card--book__have-read-check.yes {
   fill: var(--tertiary);
 }
+
+/* Form Styles */
+
+form {
+  position: absolute;
+  justify-self: center;
+  background-color: red;
+  top: 12.5%;
+  left: 12.5%;
+  width: max(75vw, 500px);
+  height: max(75vh, 400px);
+}
+
+form.off {
+  display: none;
+}
+
+/* helper classes */
+
+.blur {
+  filter: blur(5px);
+}

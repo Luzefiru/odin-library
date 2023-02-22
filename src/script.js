@@ -1,9 +1,22 @@
-const checkMark = document.querySelector('.card--book__have-read-check');
+/* New Book Form Logic */
+const btnAddBook = document.querySelector(".nav__btn--add-book");
+const formAddBook = document.querySelector("form");
+
+btnAddBook.addEventListener('click', () => {
+  formAddBook.classList.toggle('off');
+  const allElements = document.querySelectorAll("body > *");
+  allElements.forEach((e) => e.classList.toggle('blur'));
+  formAddBook.classList.toggle('blur');
+});
+
+/* Card Logic */
+
+const checkMark = document.querySelector(".card--book__have-read-check");
 
 // toggles the "Have Read" check mark
-checkMark.addEventListener('click', function () {
-  this.classList.toggle('yes');
-})
+checkMark.addEventListener("click", function () {
+  this.classList.toggle("yes");
+});
 
 /* Book Object Code */
 
