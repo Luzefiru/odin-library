@@ -10,11 +10,11 @@
 
 :root {
   --primary: hsla(198, 74%, 52%, 1);
-  --tertiary: hsla(35, 93%, 62%, 1);
+  --tertiary: rgb(232, 146, 27);
   --secondary: hsla(229, 43%, 41%, 1);
   --secondary-variant: hsla(229, 55%, 36%, 1);
   --surface: rgb(243, 243, 243);
-
+  --surface-dark: rgb(14, 14, 14);
 }
 
 body, html {
@@ -52,6 +52,8 @@ nav {
   height: 100%;
   display: grid;
   place-items: center;
+
+  color: var(--surface);
 }
 
 .nav__btn--add-book {
@@ -62,4 +64,17 @@ nav {
   padding: 0.6rem 1.5rem;
   border-radius: 36px;
   font-size: 18px;
+  font-weight: 600;
+
+  border: none;
+  background-color: var(--surface);
+  color: var(--secondary);
+
+  transition: 0.2s;
+}
+
+.nav__btn--add-book:hover {
+  background-color: var(--tertiary);
+  color: var(--surface);
+  transition: 0.2s;
 }
