@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary: hsla(198, 74%, 52%, 1);
+  --tertiary: hsla(35, 93%, 62%, 1);
+  --secondary: hsla(229, 43%, 41%, 1);
+  --secondary-variant: hsla(229, 55%, 36%, 1);
+  --surface: rgb(243, 243, 243);
+
+}
+
+body, html {
+  height: 100%;
 }
 
 nav {
@@ -11,7 +28,7 @@ nav {
   grid-template-areas: 
     "left center right";
   height: 7rem;
-  background-color: black;
+  background-color: var(--secondary-variant);
   align-items: center;
 }
 
@@ -25,20 +42,24 @@ nav {
   grid-area: center;
   justify-self: center;
   display: flex;
-  gap: 3rem;
+  height: 100%;
+  gap: 3.5rem;
 }
 
 .nav__links > * {
   font-size: 28px;
   text-decoration: none;
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .nav__btn--add-book {
   grid-area: right;
   justify-self: end;
   width: 9rem;
-  height: 3rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 24px;
+  height: 3.25rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 36px;
   font-size: 18px;
 }
