@@ -1,3 +1,12 @@
+const checkMark = document.querySelector('.card--book__have-read-check');
+
+// toggles the "Have Read" check mark
+checkMark.addEventListener('click', function () {
+  this.classList.toggle('yes');
+})
+
+/* Book Object Code */
+
 const myLibrary = [];
 
 function Book(title, author, numPages, haveRead) {

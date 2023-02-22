@@ -54,7 +54,7 @@ nav {
 }
 
 .nav__links > * {
-  font-size: 24px;
+  font-size: 1.65rem;
   text-decoration: none;
   height: 100%;
   display: grid;
@@ -66,7 +66,7 @@ nav {
 
 .nav__links > *:hover {
   transition: 0.2s;
-  font-size: 28px;
+  font-size: 1.9rem;
   color: var(--tertiary);
 }
 
@@ -135,6 +135,11 @@ main {
 }
 
 .card--book__have-read-check {
-  width: 2rem;
+  width: 2.5rem;
   align-self: flex-end;
+  fill: #9d9d9d;
+}
+
+.card--book__have-read-check.yes {
+  fill: var(--tertiary);
 }
