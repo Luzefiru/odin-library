@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  padding: 1rem 4rem;
+
+  display: grid;
+  grid-template-areas: 
+    "left center right";
+  height: 7rem;
+  background-color: black;
+  align-items: center;
+}
+
+.nav__logo {
+  grid-area: left;
+  width: 4.5rem;
+  border-radius: 100%;
+}
+
+.nav__links {
+  grid-area: center;
+  justify-self: center;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav__links > * {
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.nav__btn--add-book {
+  grid-area: right;
+  justify-self: end;
+  width: 9rem;
+  height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 24px;
+  font-size: 18px;
+}
