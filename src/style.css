@@ -219,10 +219,10 @@ form.off {
   background-color: var(--secondary);
   color: var(--surface);
 
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 .form__btn--submit:hover {
   background-color: var(--secondary-variant);
-  transition: 0.2s;
+  transition: 0.1s;
 }
