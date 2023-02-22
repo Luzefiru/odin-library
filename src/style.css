@@ -149,11 +149,40 @@ main {
 form {
   position: absolute;
   justify-self: center;
-  background-color: red;
-  top: 12.5%;
+  background-color: var(--tertiary);
+  top: 17.5%;
   left: 12.5%;
   width: max(75vw, 500px);
-  height: max(75vh, 400px);
+  height: min-content;
+
+  border-radius: 38px;
+  padding: 3rem 5rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  border: 4px inset var(--tertiary);
+}
+
+form > label {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+input#read {
+  align-self: start;
+  width: 50px;
+  height: 50px;
+}
+
+input[type="text"] {
+  height: 3rem;
+  margin-bottom: 2rem;
+  font-size: 20px;
+  padding: 0 1rem;
+  border-radius: 24px;
+  box-shadow: 2px 2px 4px inset rgb(136, 144, 180);
 }
 
 form.off {
@@ -164,4 +193,5 @@ form.off {
 
 .blur {
   filter: blur(5px);
+  transition: ease-in 0.05s;
 }

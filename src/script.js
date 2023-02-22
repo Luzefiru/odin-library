@@ -7,6 +7,7 @@ btnAddBook.addEventListener('click', () => {
   const allElements = document.querySelectorAll("body > *");
   allElements.forEach((e) => e.classList.toggle('blur'));
   formAddBook.classList.toggle('blur');
+  btnAddBook.removeEventListener('click');
 });
 
 /* Card Logic */
