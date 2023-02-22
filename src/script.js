@@ -1,13 +1,23 @@
 /* New Book Form Logic */
 const btnAddBook = document.querySelector(".nav__btn--add-book");
 const formAddBook = document.querySelector("form");
+const btnCloseForm = document.querySelector(".form__btn--close");
 
+// opens the form window & blurs every other object
+// TODO: disable button Add Book button when form window is open
 btnAddBook.addEventListener('click', () => {
   formAddBook.classList.toggle('off');
   const allElements = document.querySelectorAll("body > *");
   allElements.forEach((e) => e.classList.toggle('blur'));
   formAddBook.classList.toggle('blur');
-  btnAddBook.removeEventListener('click');
+});
+
+// closes the form window, not adding any cards
+btnCloseForm.addEventListener('click', () => {
+  formAddBook.classList.toggle('off');
+  const allElements = document.querySelectorAll("body > *");
+  allElements.forEach((e) => e.classList.toggle('blur'));
+  formAddBook.classList.toggle('blur');
 });
 
 /* Card Logic */
