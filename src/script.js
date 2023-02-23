@@ -2,6 +2,22 @@
 const btnAddBook = document.querySelector(".nav__btn--add-book");
 const formAddBook = document.querySelector("form");
 const btnCloseForm = document.querySelector(".form__btn--close");
+const submitForm = document.querySelector("form");
+const btnSubmitForm = document.querySelector(".form__btn--submit");
+
+// creates a new card based on form input and appends it to the document
+submitForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const titleInput = document.querySelector("#title").value;
+  const authorInput = document.querySelector("#author").value;
+  const pagesInput = document.querySelector("#pages").value;
+  const readInput = document.querySelector("#read").checked;
+
+  console.log(titleInput, authorInput, pagesInput, readInput);
+
+  
+});
 
 // opens the form window & blurs every other object
 // TODO: disable button Add Book button when form window is open
