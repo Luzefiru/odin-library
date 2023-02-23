@@ -6,7 +6,7 @@ This project tested my skills in Object-Oriented Programming and DOM Methods. Th
 
 I realized that using ESLint and Prettier are great for enforcing code formatting and styles, but it may not be the best choice for small projects like these. They can quickly become crutches when not used properly. A lot of setup had to be done in the initial project development, so I plan to find a way to automate or optimize that process so that I can easily add ESLint and Prettier to my projects without much hassle. Perhaps I could make a Python script or maybe there's already an npm Module that can do that, but otherwise, I plan to find my own way to do so.
 
-My favorite code snippet this time was my self-formulated code to emulate card lift shadow physics, utilizing the `transition: <time>` and `transform: effect` properties of CSS.
+My favorite code snippet this time was my self-formulated code to emulate card lift shadow physics, utilizing the `transition: <time>` and `transform: <effect>()` properties of CSS.
 
 ```CSS
 .main__card {
