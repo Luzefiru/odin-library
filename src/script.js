@@ -108,21 +108,24 @@ function scanAndEnableButtons() {
     e.addEventListener("click", function () {
       this.classList.toggle("yes");
       const id = e.parentElement.firstChild.textContent;
-      myLibrary.find((book) => book.id === Number(id)).haveRead = !myLibrary.find((book) => book.id === Number(id)).haveRead;
+      myLibrary.find((book) => book.id === Number(id)).haveRead =
+        !myLibrary.find((book) => book.id === Number(id)).haveRead;
     });
   });
 
   // deletes the book from myLibrary and removes the card
   closeIcons.forEach((e) => {
     e.addEventListener("click", () => {
-      
       const id = e.parentElement.firstChild.textContent;
 
-      myLibrary.splice((myLibrary.indexOf(myLibrary.find((book) => book.id === Number(id)))), 1);
+      myLibrary.splice(
+        myLibrary.indexOf(myLibrary.find((book) => book.id === Number(id))),
+        1
+      );
 
       e.parentElement.parentElement.removeChild(e.parentElement);
-    })
-  })
+    });
+  });
 }
 
 // creates a new card based on form input and appends it to the document
