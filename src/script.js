@@ -20,15 +20,6 @@ btnCloseForm.addEventListener("click", () => {
   formAddBook.classList.toggle("blur");
 });
 
-/* Card Logic */
-
-const checkMark = document.querySelector(".card--book__have-read-check");
-
-// toggles the "Have Read" check mark
-checkMark.addEventListener("click", function () {
-  this.classList.toggle("yes");
-});
-
 /* Book Object Code */
 
 const myLibrary = [];
@@ -104,6 +95,19 @@ function createBookCard(id, title, author, pages, read) {
   main.appendChild(newCard);
 }
 
+// selects all check box icons and enables functionality
+function scanAndEnableCheckButtons () {
+
+  const checkMarks = document.querySelectorAll(".card--book__have-read-check");
+
+  // toggles the "Have Read" check mark
+  checkMarks.forEach((e) => {
+    e.addEventListener('click', function () {
+      this.classList.toggle('yes');
+    })
+  })
+}
+
 // creates a new card based on form input and appends it to the document
 submitForm.addEventListener("submit", (e) => {
   e.preventDefault(); // prevents type="submit" <button> tags from defaulting to refreshing the page for form submissions
@@ -132,4 +136,8 @@ submitForm.addEventListener("submit", (e) => {
   const allElements = document.querySelectorAll("body > *");
   allElements.forEach((node) => node.classList.toggle("blur"));
   formAddBook.classList.toggle("blur");
+
+  scanAndEnableCheckButtons();
 });
+
+
