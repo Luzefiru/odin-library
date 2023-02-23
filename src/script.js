@@ -54,11 +54,7 @@ Book.prototype.info = function () {
 };
 
 // creates a new Book object based on arguments and appends it to the Book array
-function addBookToLibrary(title, author, numPages, haveRead) {
-  // increments lastID for unique primary key
-  lastID += 1;
-  const id = lastID;
-
+function addBookToLibrary(id, title, author, numPages, haveRead) {
   const toAppend = new Book(id, title, author, numPages, haveRead);
   myLibrary.push(toAppend);
 }
@@ -74,6 +70,34 @@ function displayBooks() {
 const submitForm = document.querySelector("form");
 const btnSubmitForm = document.querySelector(".form__btn--submit");
 
+function createBookCard(id, title, author, pages, read) {
+  const newCard = document.createElement('div');
+  newCard.setAttribute("class", "main__card card--book");
+
+  const cardId = document.createElement('p');
+  cardId.setAttribute("class", "card--book__id");
+  cardId.textContent = id;
+  newCard.appendChild(cardId);
+
+  const cardTitle = document.createElement('p');
+  cardTitle.setAttribute("class", "card--book__title");
+  cardTitle.textContent = title;
+  newCard.appendChild(cardTitle);
+
+  const cardAuthor = document.createElement('p');
+  cardAuthor.setAttribute("class", "card--book__author");
+  cardAuthor.textContent = `by ${author}`;
+  newCard.appendChild(cardAuthor);
+
+  const cardPages = document.createElement('p');
+  cardPages.setAttribute("class", "card--book__pages");
+  cardPages.textContent = `${pages} pages`;
+  newCard.appendChild(cardPages);
+
+  const main = document.querySelector("main");
+  main.appendChild(newCard);
+}
+
 // creates a new card based on form input and appends it to the document
 submitForm.addEventListener("submit", (e) => {
   e.preventDefault(); // prevents type="submit" <button> tags from defaulting to refreshing the page for form submissions
@@ -85,7 +109,13 @@ submitForm.addEventListener("submit", (e) => {
 
   console.log(titleInput, authorInput, pagesInput, readInput); // debug
 
-  addBookToLibrary(titleInput, authorInput, pagesInput, readInput);
+  // increments lastID for unique primary key
+  lastID += 1;
+  const id = lastID;
+
+  addBookToLibrary(id, titleInput, authorInput, pagesInput, readInput);
 
   console.log(myLibrary); // debug
+
+  createBookCard(id, titleInput, authorInput, pagesInput, readInput);
 });
