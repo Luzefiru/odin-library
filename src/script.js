@@ -94,6 +94,12 @@ function createBookCard(id, title, author, pages, read) {
   cardPages.textContent = `${pages} pages`;
   newCard.appendChild(cardPages);
 
+  // adds the ".yes" class if the book has been read
+  const haveRead = (read) ? " yes" : "";
+
+  // adds the check button
+  newCard.innerHTML += `<svg class="card--book__have-read-check${haveRead}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z" /></svg>`;
+
   const main = document.querySelector("main");
   main.appendChild(newCard);
 }
@@ -107,15 +113,23 @@ submitForm.addEventListener("submit", (e) => {
   const pagesInput = document.querySelector("#pages").value;
   const readInput = document.querySelector("#read").checked;
 
-  console.log(titleInput, authorInput, pagesInput, readInput); // debug
-
   // increments lastID for unique primary key
   lastID += 1;
   const id = lastID;
 
   addBookToLibrary(id, titleInput, authorInput, pagesInput, readInput);
 
-  console.log(myLibrary); // debug
-
   createBookCard(id, titleInput, authorInput, pagesInput, readInput);
+
+  // resets form fields
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#read").checked = false;
+
+  // turns form off
+  formAddBook.classList.toggle("off");
+  const allElements = document.querySelectorAll("body > *");
+  allElements.forEach((node) => node.classList.toggle("blur"));
+  formAddBook.classList.toggle("blur");
 });
