@@ -226,3 +226,9 @@ form.off {
   background-color: var(--secondary-variant);
   transition: 0.1s;
 }
+
+/* card ID */
+
+.card--book__id {
+  display: none;
+}

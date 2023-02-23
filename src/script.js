@@ -2,38 +2,22 @@
 const btnAddBook = document.querySelector(".nav__btn--add-book");
 const formAddBook = document.querySelector("form");
 const btnCloseForm = document.querySelector(".form__btn--close");
-const submitForm = document.querySelector("form");
-const btnSubmitForm = document.querySelector(".form__btn--submit");
-
-// creates a new card based on form input and appends it to the document
-submitForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const titleInput = document.querySelector("#title").value;
-  const authorInput = document.querySelector("#author").value;
-  const pagesInput = document.querySelector("#pages").value;
-  const readInput = document.querySelector("#read").checked;
-
-  console.log(titleInput, authorInput, pagesInput, readInput);
-
-  
-});
 
 // opens the form window & blurs every other object
 // TODO: disable button Add Book button when form window is open
-btnAddBook.addEventListener('click', () => {
-  formAddBook.classList.toggle('off');
+btnAddBook.addEventListener("click", () => {
+  formAddBook.classList.toggle("off");
   const allElements = document.querySelectorAll("body > *");
-  allElements.forEach((e) => e.classList.toggle('blur'));
-  formAddBook.classList.toggle('blur');
+  allElements.forEach((e) => e.classList.toggle("blur"));
+  formAddBook.classList.toggle("blur");
 });
 
 // closes the form window, not adding any cards
-btnCloseForm.addEventListener('click', () => {
-  formAddBook.classList.toggle('off');
+btnCloseForm.addEventListener("click", () => {
+  formAddBook.classList.toggle("off");
   const allElements = document.querySelectorAll("body > *");
-  allElements.forEach((e) => e.classList.toggle('blur'));
-  formAddBook.classList.toggle('blur');
+  allElements.forEach((e) => e.classList.toggle("blur"));
+  formAddBook.classList.toggle("blur");
 });
 
 /* Card Logic */
@@ -48,8 +32,10 @@ checkMark.addEventListener("click", function () {
 /* Book Object Code */
 
 const myLibrary = [];
+let lastID = 0;
 
-function Book(title, author, numPages, haveRead) {
+function Book(id, title, author, numPages, haveRead) {
+  this.id = id;
   this.title = title;
   this.author = author;
   this.numPages = numPages;
@@ -67,20 +53,13 @@ Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.numPages} pages, ${message}`;
 };
 
-function addBookToLibrary() {
-  const title = prompt("What is the title of the book?");
-  const author = prompt("Who is the author of the book?");
-  const numPages = prompt("How many pages are in the book?");
-  const haveReadInput = prompt("Have you read it already? Y/N");
-  let haveRead;
-  if (haveReadInput === "Y") {
-    haveRead = true;
-  } else {
-    haveRead = false;
-  }
+// creates a new Book object based on arguments and appends it to the Book array
+function addBookToLibrary(title, author, numPages, haveRead) {
+  // increments lastID for unique primary key
+  lastID += 1;
+  const id = lastID;
 
-  const toAppend = new Book(title, author, numPages, haveRead);
-
+  const toAppend = new Book(id, title, author, numPages, haveRead);
   myLibrary.push(toAppend);
 }
 
@@ -89,3 +68,24 @@ function displayBooks() {
     e.info();
   });
 }
+
+/* Add Book Form Submit logic */
+
+const submitForm = document.querySelector("form");
+const btnSubmitForm = document.querySelector(".form__btn--submit");
+
+// creates a new card based on form input and appends it to the document
+submitForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevents type="submit" <button> tags from defaulting to refreshing the page for form submissions
+
+  const titleInput = document.querySelector("#title").value;
+  const authorInput = document.querySelector("#author").value;
+  const pagesInput = document.querySelector("#pages").value;
+  const readInput = document.querySelector("#read").checked;
+
+  console.log(titleInput, authorInput, pagesInput, readInput); // debug
+
+  addBookToLibrary(titleInput, authorInput, pagesInput, readInput);
+
+  console.log(myLibrary); // debug
+});
