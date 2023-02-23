@@ -35,7 +35,7 @@ I need to improve on:
 
 # Output
 ### [Visit the Website Here](https://luzefiru.github.io/odin-library/)
-<img src="./requirements/website-screenshot.png">
+<img src="./requirements/screenshot.png">
 
 # Requirements
 These were the requirements in The Odin Project's [Project: Library](https://www.theodinproject.com/lessons/node-path-javascript-library) site to serve as project specifications. Website aesthetic choices and implementation solely depended on me, the programmer.
