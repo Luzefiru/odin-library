@@ -185,6 +185,11 @@ input[type="text"] {
   box-shadow: 2px 2px 4px inset rgb(136, 144, 180);
 }
 
+input:invalid {
+  background-color: #f8d7da;
+  box-shadow: none;
+}
+
 form.off {
   display: none;
 }
