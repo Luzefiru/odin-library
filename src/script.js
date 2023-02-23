@@ -103,6 +103,8 @@ function scanAndEnableCheckButtons() {
   checkMarks.forEach((e) => {
     e.addEventListener("click", function () {
       this.classList.toggle("yes");
+      const id = e.parentElement.firstChild.textContent;
+      myLibrary.find((book) => book.id === Number(id)).haveRead = !myLibrary.find((book) => book.id === Number(id)).haveRead;
     });
   });
 }
