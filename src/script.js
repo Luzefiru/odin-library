@@ -91,13 +91,17 @@ function createBookCard(id, title, author, pages, read) {
   // adds the check button
   newCard.innerHTML += `<svg class="card--book__have-read-check${haveRead}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z" /></svg>`;
 
+  // adds the remove button
+  newCard.innerHTML += `<a href="#" class="close"></a>`;
+
   const main = document.querySelector("main");
   main.appendChild(newCard);
 }
 
 // selects all check box icons and enables functionality
-function scanAndEnableCheckButtons() {
+function scanAndEnableButtons() {
   const checkMarks = document.querySelectorAll(".card--book__have-read-check");
+  const closeIcons = document.querySelectorAll(".close");
 
   // toggles the "Have Read" check mark
   checkMarks.forEach((e) => {
@@ -107,6 +111,18 @@ function scanAndEnableCheckButtons() {
       myLibrary.find((book) => book.id === Number(id)).haveRead = !myLibrary.find((book) => book.id === Number(id)).haveRead;
     });
   });
+
+  // deletes the book from myLibrary and removes the card
+  closeIcons.forEach((e) => {
+    e.addEventListener("click", () => {
+      
+      const id = e.parentElement.firstChild.textContent;
+
+      myLibrary.splice((myLibrary.indexOf(myLibrary.find((book) => book.id === Number(id)))), 1);
+
+      e.parentElement.parentElement.removeChild(e.parentElement);
+    })
+  })
 }
 
 // creates a new card based on form input and appends it to the document
@@ -138,5 +154,5 @@ submitForm.addEventListener("submit", (e) => {
   allElements.forEach((node) => node.classList.toggle("blur"));
   formAddBook.classList.toggle("blur");
 
-  scanAndEnableCheckButtons();
+  scanAndEnableButtons();
 });
