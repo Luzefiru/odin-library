@@ -62,31 +62,31 @@ const submitForm = document.querySelector("form");
 const btnSubmitForm = document.querySelector(".form__btn--submit");
 
 function createBookCard(id, title, author, pages, read) {
-  const newCard = document.createElement('div');
+  const newCard = document.createElement("div");
   newCard.setAttribute("class", "main__card card--book");
 
-  const cardId = document.createElement('p');
+  const cardId = document.createElement("p");
   cardId.setAttribute("class", "card--book__id");
   cardId.textContent = id;
   newCard.appendChild(cardId);
 
-  const cardTitle = document.createElement('p');
+  const cardTitle = document.createElement("p");
   cardTitle.setAttribute("class", "card--book__title");
   cardTitle.textContent = title;
   newCard.appendChild(cardTitle);
 
-  const cardAuthor = document.createElement('p');
+  const cardAuthor = document.createElement("p");
   cardAuthor.setAttribute("class", "card--book__author");
   cardAuthor.textContent = `by ${author}`;
   newCard.appendChild(cardAuthor);
 
-  const cardPages = document.createElement('p');
+  const cardPages = document.createElement("p");
   cardPages.setAttribute("class", "card--book__pages");
   cardPages.textContent = `${pages} pages`;
   newCard.appendChild(cardPages);
 
   // adds the ".yes" class if the book has been read
-  const haveRead = (read) ? " yes" : "";
+  const haveRead = read ? " yes" : "";
 
   // adds the check button
   newCard.innerHTML += `<svg class="card--book__have-read-check${haveRead}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z" /></svg>`;
@@ -96,16 +96,15 @@ function createBookCard(id, title, author, pages, read) {
 }
 
 // selects all check box icons and enables functionality
-function scanAndEnableCheckButtons () {
-
+function scanAndEnableCheckButtons() {
   const checkMarks = document.querySelectorAll(".card--book__have-read-check");
 
   // toggles the "Have Read" check mark
   checkMarks.forEach((e) => {
-    e.addEventListener('click', function () {
-      this.classList.toggle('yes');
-    })
-  })
+    e.addEventListener("click", function () {
+      this.classList.toggle("yes");
+    });
+  });
 }
 
 // creates a new card based on form input and appends it to the document
@@ -139,5 +138,3 @@ submitForm.addEventListener("submit", (e) => {
 
   scanAndEnableCheckButtons();
 });
-
-
